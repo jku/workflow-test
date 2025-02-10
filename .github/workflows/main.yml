@@ -14,5 +14,22 @@ jobs:
       - run: pip install pip-tools
 
       - run: |
+          echo "TEST googleapis-common-protos"
           echo "googleapis-common-protos" > test.txt.in
+          pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
+
+          echo "TEST google-api-core==2.24.1"
+          echo "google-api-core==2.24.1" > test.txt.in
+          pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
+
+          echo "TEST grpc-google-iam-v1==0.14.0"
+          echo "grpc-google-iam-v1==0.14.0" > test.txt.in
+          pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
+
+          echo "TEST grpcio-status==1.70.0"
+          echo "grpcio-status==1.70.0" > test.txt.in
+          pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
+
+          echo "TEST securesystemslib[awskms, azurekms, gcpkms, sigstore] ~= 1.2"
+          echo "securesystemslib[awskms, azurekms, gcpkms, sigstore] ~= 1.2" > test.txt.in
           pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
