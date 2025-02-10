@@ -14,5 +14,5 @@ jobs:
       - run: pip install pip-tools
 
       - run: |
-          echo "google-common-protos" > test.txt.in
+          echo "googleapis-common-protos" > test.txt.in
           pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
