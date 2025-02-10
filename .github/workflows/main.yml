@@ -9,10 +9,10 @@ jobs:
     steps:
       - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
-          python-version: '3.12'
+          python-version: '3.11'
 
       - run: pip install pip-tools
 
       - run: |
           echo "securesystemslib[awskms, azurekms, gcpkms, sigstore] ~= 1.2" > test.txt.in
-          pip-compile --strip-extras --upgrade test.txt.in
+          pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
