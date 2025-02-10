@@ -14,5 +14,5 @@ jobs:
       - run: pip install pip-tools
 
       - run: |
-          echo "securesystemslib[awskms, azurekms, gcpkms, sigstore] ~= 1.2" > test.txt.in
+          echo "google-common-protos" > test.txt.in
           pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
