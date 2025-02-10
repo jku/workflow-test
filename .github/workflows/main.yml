@@ -18,15 +18,11 @@ jobs:
           echo "googleapis-common-protos" > test.txt.in
           pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
 
-          echo "TEST googleapis-common-protos[grpc]<2.0.0dev,>=1.56.0"
-          echo "googleapis-common-protos[grpc]<2.0.0dev,>=1.56.0" > test.txt.in
+          echo "TEST googleapis-common-protos<2.0.0dev"
+          echo "googleapis-common-protos<2.0.0dev" > test.txt.in
           pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
 
-          echo "TEST googleapis-common-protos[grpc]"
-          echo "googleapis-common-protos[grpc]" > test.txt.in
-          pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
-
-          echo "TEST googleapis-common-protos[grpc]<2.0.0dev"
-          echo "googleapis-common-protos[grpc]<2.0.0dev" > test.txt.in
+          echo "TEST googleapis-common-protos<2.0.0"
+          echo "googleapis-common-protos<2.0.0" > test.txt.in
           pip-compile --strip-extras --upgrade test.txt.in 2>&1 | grep "googleapis-common-protos=="
 
